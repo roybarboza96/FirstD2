@@ -39,7 +39,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include;$(ProjectDir)\headers;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -74,25 +74,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Entity.cpp" />
-    <ClCompile Include="game.cpp" />
-    <ClCompile Include="graphics.cpp" />
-    <ClCompile Include="image.cpp" />
-    <ClCompile Include="input.cpp" />
-    <ClCompile Include="spacewar.cpp" />
-    <ClCompile Include="textureManager.cpp" />
-    <ClCompile Include="winmain.cpp" />
+    <ClInclude Include="headers\constants.h" />
+    <ClInclude Include="headers\Entity.h" />
+    <ClInclude Include="headers\game.h" />
+    <ClInclude Include="headers\gameError.h" />
+    <ClInclude Include="headers\graphics.h" />
+    <ClInclude Include="headers\image.h" />
+    <ClInclude Include="headers\input.h" />
+    <ClInclude Include="headers\spacewar.h" />
+    <ClInclude Include="headers\textureManager.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="constants.h" />
-    <ClInclude Include="Entity.h" />
-    <ClInclude Include="game.h" />
-    <ClInclude Include="gameError.h" />
-    <ClInclude Include="graphics.h" />
-    <ClInclude Include="image.h" />
-    <ClInclude Include="input.h" />
-    <ClInclude Include="spacewar.h" />
-    <ClInclude Include="textureManager.h" />
+    <ClCompile Include="src\Entity.cpp" />
+    <ClCompile Include="src\game.cpp" />
+    <ClCompile Include="src\graphics.cpp" />
+    <ClCompile Include="src\image.cpp" />
+    <ClCompile Include="src\input.cpp" />
+    <ClCompile Include="src\spacewar.cpp" />
+    <ClCompile Include="src\textureManager.cpp" />
+    <ClCompile Include="src\winmain.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
