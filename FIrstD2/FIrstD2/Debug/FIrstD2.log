@@ -1,8 +1,16 @@
-﻿Build started 7/20/2015 1:01:18 PM.
+﻿Build started 7/21/2015 7:28:47 AM.
      1>Project "C:\Users\rsung\Documents\GitHub\FirstD2\FIrstD2\FIrstD2\FIrstD2.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt src\spacewar.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt src\Entity.cpp src\game.cpp src\graphics.cpp src\image.cpp src\input.cpp src\spacewar.cpp src\textureManager.cpp src\winmain.cpp
+         winmain.cpp
+         textureManager.cpp
          spacewar.cpp
+         input.cpp
+         image.cpp
+         graphics.cpp
+         game.cpp
+         Entity.cpp
+         Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\rsung\Documents\GitHub\FirstD2\FIrstD2\Debug\FIrstD2.exe" /INCREMENTAL /NOLOGO winmm.lib d3d9.lib xinput.lib d3dx9.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\rsung\Documents\GitHub\FirstD2\FIrstD2\Debug\FIrstD2.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\rsung\Documents\GitHub\FirstD2\FIrstD2\Debug\FIrstD2.lib" /MACHINE:X86 Debug\Entity.obj
          Debug\game.obj
@@ -17,4 +25,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:03.86
+Time Elapsed 00:00:08.40

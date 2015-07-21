@@ -83,8 +83,10 @@
     <ClInclude Include="headers\input.h" />
     <ClInclude Include="headers\spacewar.h" />
     <ClInclude Include="headers\textureManager.h" />
+    <ClInclude Include="Link.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Link.cpp" />
     <ClCompile Include="src\Entity.cpp" />
     <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\graphics.cpp" />
