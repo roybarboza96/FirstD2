@@ -57,4 +57,30 @@ void Entity::move(int x, int y)
 
 }
 
+void Entity::update(float frameTime)
+{
+
+	if (endFrame - startFrame > 0 && isMoving)          // if animated sprite
+	{
+		animTimer += frameTime;             // total elapsed time
+		if (animTimer > frameDelay)
+		{
+			animTimer -= frameDelay;
+			currentFrame++;
+			if (currentFrame < startFrame || currentFrame > endFrame)
+			{
+				if (loop == true)            // if looping animation
+					currentFrame = startFrame;
+				else                        // not looping animation
+				{
+					currentFrame = endFrame;
+					animComplete = true;    // animation complete
+				}
+			}
+			setRect();                      // set spriteData.rect
+		}
+	}
+
+}
+
 

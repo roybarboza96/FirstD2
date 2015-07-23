@@ -36,13 +36,16 @@
     <ClInclude Include="headers\input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="headers\spacewar.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="headers\textureManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Link.h">
+    <ClInclude Include="headers\Link.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\ZeldaRogue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -62,16 +65,16 @@
     <ClCompile Include="src\input.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\spacewar.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\textureManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\winmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Link.cpp">
+    <ClCompile Include="src\Link.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ZeldaRogue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

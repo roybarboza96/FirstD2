@@ -61,6 +61,10 @@ class Entity : public Image
 	  bool get_isMoving(){ return isMoving; }
 
 
+	  //
+	  void virtual update(float frameTime);
+
+
 
 
 
