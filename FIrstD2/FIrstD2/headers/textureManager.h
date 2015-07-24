@@ -16,6 +16,12 @@ class TextureManager
   private:
     UINT       width;       // width of texture in pixels
     UINT       height;      // height of texture in pixels
+	UINT       block;        // block of pixels in a square, the smallest group of pixels besides just a single pixel
+		                    // used to help organize for sprite sheets
+
+	//These are used to determine the number of blocks per width and height of the entire texture
+	UINT       num_block_width;
+	UINT       num_block_height;
     LP_TEXTURE texture;     // pointer to texture
     const char *file;       // name of file
     Graphics *graphics;     // save pointer to graphics
@@ -38,11 +44,17 @@ class TextureManager
     // Return the texture height
     UINT getHeight() const {return height;}
 
+	//Return the number of pixels in block
+	UINT getBlock() const { return block; }
+
+	UINT getBlockWidth() const{ return num_block_width; }
+	UINT getBlockHeight() const{ return num_block_height; }
+
     // Initialize the textureManager
     // Pre: *g points to Graphics object
     //      *file points to name of texture file to load
     // Post: The texture file is loaded
-    virtual bool initialize(Graphics *g, const char *file);
+    virtual bool initialize(Graphics *g, const char *file, UINT input_block);
 
     // Release resources
     virtual void onLostDevice();

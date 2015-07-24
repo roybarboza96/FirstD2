@@ -9,17 +9,19 @@
 
 Entity::Entity()
 {
-	speed = 1;
+	speed = 1.0f;
 	health = 3;
 	isMoving = false;
+	isRunning = false;
+	loopingDown = false;
 
 
 }
 
-bool Entity::initialize(Game *gamePtr, int width, int height, int ncols,
+bool Entity::initialize(Game *gamePtr,int startX, int startY, int width, int height, int ncols,
 	TextureManager *textureM)
 {
-	return (Image::initialize(gamePtr->getGraphics(), width, height, ncols,
+	return (Image::initialize(gamePtr->getGraphics(), startX, startY, width, height, ncols,
 		textureM));
 
 }
@@ -66,11 +68,25 @@ void Entity::update(float frameTime)
 		if (animTimer > frameDelay)
 		{
 			animTimer -= frameDelay;
-			currentFrame++;
+			if (loopingDown)
+				currentFrame--;
+			else
+				currentFrame++;
 			if (currentFrame < startFrame || currentFrame > endFrame)
 			{
 				if (loop == true)            // if looping animation
-					currentFrame = startFrame;
+				{
+					if (isRunning)
+					{
+						if (currentFrame > endFrame)
+							loopingDown = true;
+						else if (currentFrame < startFrame)
+							loopingDown = false;
+					}
+					else
+						currentFrame = startFrame;
+
+				}
 				else                        // not looping animation
 				{
 					currentFrame = endFrame;

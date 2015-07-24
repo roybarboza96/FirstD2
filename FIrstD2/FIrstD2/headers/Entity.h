@@ -18,9 +18,12 @@ class Entity : public Image
   protected:
 
 	  int health;
-	  int speed;
+	  float speed;
 
 	  bool isMoving;
+
+	  bool isRunning;
+	  bool loopingDown;
 
 
 
@@ -35,7 +38,7 @@ class Entity : public Image
 
 
 	  //initializer
-	  bool initialize(Game *gamePtr, int width, int height, int ncols,
+	  bool initialize(Game *gamePtr, int startX, int startY, int width, int height, int ncols,
 		  TextureManager *textureM);
 
 

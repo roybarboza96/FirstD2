@@ -31,6 +31,10 @@ class Image
     bool    initialized;    // true when successfully initialized
     bool    animComplete;   // true when loop is false and endFrame has finished displaying
 
+	//The starting position inside the texture to draw
+	int start_x;
+	int start_y;
+
   public:
     // Constructor
     Image();
@@ -147,6 +151,9 @@ class Image
     virtual void setTextureManager(TextureManager *textureM)
     { textureManager = textureM; }
 
+	virtual void setStartX(int startX) { start_x = startX; }
+	virtual void setStartY(int startY) { start_y = startY; }
+
     ////////////////////////////////////////
     //         Other functions            //
     ////////////////////////////////////////
@@ -157,7 +164,7 @@ class Image
     //      height = height of Image in pixels (0 = use full texture height)
     //      ncols = number of columns in texture (1 to n) (0 same as 1)
     //      *textureM = pointer to TextureManager object
-    virtual bool Image::initialize(Graphics *g, int width, int height, 
+    virtual bool Image::initialize(Graphics *g, int startX, int startY, int width, int height, 
                                     int ncols, TextureManager *textureM);
 
     // Flip image horizontally (mirror)

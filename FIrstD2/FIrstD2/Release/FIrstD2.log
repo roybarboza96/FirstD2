@@ -1,16 +1,22 @@
-﻿Build started 7/23/2015 11:55:37 AM.
+﻿Build started 7/24/2015 10:52:17 AM.
      1>Project "C:\Users\rsung\Documents\GitHub\FirstD2\FIrstD2\FIrstD2\FIrstD2.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt src\Entity.cpp src\game.cpp src\graphics.cpp src\image.cpp src\input.cpp src\Link.cpp src\ZeldaRogue.cpp src\textureManager.cpp src\winmain.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt src\Entity.cpp src\Link.cpp src\ZeldaRogue.cpp src\game.cpp src\image.cpp src\textureManager.cpp src\winmain.cpp
          Entity.cpp
-         game.cpp
-         graphics.cpp
-         image.cpp
-         input.cpp
+     1>C:\Users\rsung\Documents\GitHub\FirstD2\FIrstD2\FIrstD2\headers\Entity.h(52): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>C:\Users\rsung\Documents\GitHub\FirstD2\FIrstD2\FIrstD2\headers\Entity.h(59): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
          Link.cpp
+     1>c:\users\rsung\documents\github\firstd2\firstd2\firstd2\headers\Entity.h(52): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\rsung\documents\github\firstd2\firstd2\firstd2\headers\Entity.h(59): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
          ZeldaRogue.cpp
+     1>c:\users\rsung\documents\github\firstd2\firstd2\firstd2\headers\Entity.h(52): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\rsung\documents\github\firstd2\firstd2\firstd2\headers\Entity.h(59): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
+         game.cpp
+         image.cpp
          textureManager.cpp
          winmain.cpp
+     1>c:\users\rsung\documents\github\firstd2\firstd2\firstd2\headers\Entity.h(52): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\rsung\documents\github\firstd2\firstd2\firstd2\headers\Entity.h(59): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\rsung\Documents\GitHub\FirstD2\FIrstD2\Release\FIrstD2.exe" /NOLOGO winmm.lib d3d9.lib xinput.lib d3dx9.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\rsung\Documents\GitHub\FirstD2\FIrstD2\Release\FIrstD2.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\rsung\Documents\GitHub\FirstD2\FIrstD2\Release\FIrstD2.lib" /MACHINE:X86 /SAFESEH Release\Entity.obj
          Release\game.obj
@@ -28,4 +34,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:09.47
+Time Elapsed 00:00:10.69

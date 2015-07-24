@@ -30,18 +30,21 @@ void ZeldaRogue::initialize(HWND hwnd)
     Game::initialize(hwnd); // throws GameError
 
 
-	if (!mainTexture.initialize(graphics, MAIN_TEXTURE))
+	if (!mainTexture.initialize(graphics, MAIN_TEXTURE, 8))
 		throw (GameError(gameErrorNS::FATAL_ERROR,
 		"Error initializing main texture"));
 
 
-	if (!link.initialize((Game*)this, 16, 24, 8, &mainTexture))
+	if (!link.initialize((Game*)this, 0, 0, 16, 24, 8, &mainTexture))
 		throw (GameError(gameErrorNS::FATAL_ERROR,
 		"Error intializing link image"));
 
 	link.setFrames(0, 7);
-	link.setFrameDelay(0.06f);
+	link.setFrameDelay(0.05f);
 	link.setCurrentFrame(0);
+
+
+	link.setScale(1.0f);
 
 
 

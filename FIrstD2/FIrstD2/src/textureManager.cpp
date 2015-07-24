@@ -32,7 +32,7 @@ TextureManager::~TextureManager()
 // Loads the texture file from disk.
 // Post: returns true if successful, false if failed
 //=============================================================================
-bool TextureManager::initialize(Graphics *g, const char *f)
+bool TextureManager::initialize(Graphics *g, const char *f, UINT input_block)
 {
     try{
         graphics = g;                       // the graphics object
@@ -44,6 +44,9 @@ bool TextureManager::initialize(Graphics *g, const char *f)
             SAFE_RELEASE(texture);
             return false;
         }
+		block = input_block;
+
+
     }
     catch(...) {return false;}
     initialized = true;                    // set true when successfully initialized

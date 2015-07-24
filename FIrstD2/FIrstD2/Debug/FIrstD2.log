@@ -1,9 +1,30 @@
-﻿Build started 7/23/2015 11:55:47 AM.
+﻿Build started 7/24/2015 1:41:22 PM.
      1>Project "C:\Users\rsung\Documents\GitHub\FirstD2\FIrstD2\FIrstD2\FIrstD2.vcxproj" on node 2 (Build target(s)).
-     1>Link:
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt src\Entity.cpp src\Link.cpp src\ZeldaRogue.cpp src\winmain.cpp
+         Link.cpp
+     1>c:\users\rsung\documents\github\firstd2\firstd2\firstd2\headers\entity.h(55): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\rsung\documents\github\firstd2\firstd2\firstd2\headers\entity.h(62): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
+         Entity.cpp
+     1>c:\users\rsung\documents\github\firstd2\firstd2\firstd2\headers\entity.h(55): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\rsung\documents\github\firstd2\firstd2\firstd2\headers\entity.h(62): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
+         Generating Code...
+         Skipping... (no relevant changes detected)
+         winmain.cpp
+         ZeldaRogue.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\rsung\Documents\GitHub\FirstD2\FIrstD2\Debug\FIrstD2.exe" /INCREMENTAL /NOLOGO winmm.lib d3d9.lib xinput.lib d3dx9.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\rsung\Documents\GitHub\FirstD2\FIrstD2\Debug\FIrstD2.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\rsung\Documents\GitHub\FirstD2\FIrstD2\Debug\FIrstD2.lib" /MACHINE:X86 Debug\Entity.obj
+         Debug\game.obj
+         Debug\graphics.obj
+         Debug\image.obj
+         Debug\input.obj
+         Debug\Link.obj
+         Debug\ZeldaRogue.obj
+         Debug\textureManager.obj
+         Debug\winmain.obj
          FIrstD2.vcxproj -> C:\Users\rsung\Documents\GitHub\FirstD2\FIrstD2\Debug\FIrstD2.exe
      1>Done Building Project "C:\Users\rsung\Documents\GitHub\FirstD2\FIrstD2\FIrstD2\FIrstD2.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.00
+Time Elapsed 00:00:12.60

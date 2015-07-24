@@ -53,7 +53,7 @@ Image::~Image()
 // number of columns in texture (1 to n) (0 same as 1)
 // pointer to TextureManager
 //=============================================================================
-bool Image::initialize(Graphics *g, int width, int height, int ncols,
+bool Image::initialize(Graphics *g, int startX, int startY, int width, int height, int ncols,
                        TextureManager *textureM)
 {
     try{
@@ -61,6 +61,9 @@ bool Image::initialize(Graphics *g, int width, int height, int ncols,
         textureManager = textureM;                  // pointer to texture object
 
         spriteData.texture = textureManager->getTexture();
+		start_x = startX;
+		start_y = startY;
+
         if(width == 0)
             width = textureManager->getWidth();     // use full width of texture
         spriteData.width = width;
@@ -71,6 +74,14 @@ bool Image::initialize(Graphics *g, int width, int height, int ncols,
         if (cols == 0)
             cols = 1;                               // if 0 cols use 1
 
+		spriteData.rect.left =  start_x + (currentFrame % cols) * spriteData.width;
+		spriteData.rect.right = spriteData.rect.left + spriteData.width;
+
+		spriteData.rect.top = start_y + (currentFrame / cols) * spriteData.height;
+		spriteData.rect.top = spriteData.rect.top + spriteData.height;
+
+
+		/*
         // configure spriteData.rect to draw currentFrame
         spriteData.rect.left = (currentFrame % cols) * spriteData.width;
         // right edge + 1
@@ -78,6 +89,7 @@ bool Image::initialize(Graphics *g, int width, int height, int ncols,
         spriteData.rect.top = (currentFrame / cols) * spriteData.height;
         // bottom edge + 1
         spriteData.rect.bottom = spriteData.rect.top + spriteData.height;
+		*/
     }
     catch(...) {return false;}
     initialized = true;                                // successfully initialized
@@ -170,10 +182,10 @@ void Image::setCurrentFrame(int c)
 inline void Image::setRect() 
 {
     // configure spriteData.rect to draw currentFrame
-    spriteData.rect.left = (currentFrame % cols) * spriteData.width;
+    spriteData.rect.left = start_x + (currentFrame % cols) * spriteData.width;
     // right edge + 1
     spriteData.rect.right = spriteData.rect.left + spriteData.width;
-    spriteData.rect.top = (currentFrame / cols) * spriteData.height;
+    spriteData.rect.top = (start_y + (currentFrame / cols) * spriteData.height);
     // bottom edge + 1
     spriteData.rect.bottom = spriteData.rect.top + spriteData.height;       
 }
