@@ -5,6 +5,7 @@
  ************************/
 
 #include "Entity.h"
+#include <iostream>
 
 
 Entity::Entity()
@@ -79,9 +80,17 @@ void Entity::update(float frameTime)
 					if (isRunning)
 					{
 						if (currentFrame > endFrame)
+						{
 							loopingDown = true;
+							currentFrame = endFrame;
+							std::cout << currentFrame;
+						}
 						else if (currentFrame < startFrame)
+						{
 							loopingDown = false;
+							currentFrame = startFrame;
+							std::cout << currentFrame;
+						}
 					}
 					else
 						currentFrame = startFrame;

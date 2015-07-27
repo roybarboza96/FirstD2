@@ -90,8 +90,8 @@ void Link::update(float frameTime)
 
 	if (keyWasPressed)
 	{
-		if (isMoving == false)
-			setCurrentFrame(1);
+		//if (isMoving == false)
+		//	setCurrentFrame(1);
 		isMoving = true;
 		setFrames(1, 7);
 		loop = true;
@@ -99,8 +99,8 @@ void Link::update(float frameTime)
 	else
 	{
 		isMoving = false;
-		setCurrentFrame(0);
-		setFrames(0, 7);
+		//setCurrentFrame(0);
+		//setFrames(0, 7);
 		loop = false;
 	}
 
