@@ -5,7 +5,8 @@
  ************************/
 
 #include "Entity.h"
-#include <iostream>
+
+
 
 
 Entity::Entity()
@@ -66,30 +67,39 @@ void Entity::update(float frameTime)
 	if (endFrame - startFrame > 0 && isMoving)          // if animated sprite
 	{
 		animTimer += frameTime;             // total elapsed time
+
 		if (animTimer > frameDelay)
 		{
+
 			animTimer -= frameDelay;
+
 			if (loopingDown)
 				currentFrame--;
 			else
 				currentFrame++;
+
 			if (currentFrame < startFrame || currentFrame > endFrame)
 			{
+
 				if (loop == true)            // if looping animation
 				{
+
 					if (isRunning)
 					{
+
 						if (currentFrame > endFrame)
 						{
+
 							loopingDown = true;
 							currentFrame = endFrame;
-							std::cout << currentFrame;
+
 						}
 						else if (currentFrame < startFrame)
 						{
+
 							loopingDown = false;
 							currentFrame = startFrame;
-							std::cout << currentFrame;
+
 						}
 					}
 					else
@@ -98,10 +108,13 @@ void Entity::update(float frameTime)
 				}
 				else                        // not looping animation
 				{
+
 					currentFrame = endFrame;
 					animComplete = true;    // animation complete
+
 				}
 			}
+
 			setRect();                      // set spriteData.rect
 		}
 	}

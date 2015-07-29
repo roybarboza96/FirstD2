@@ -48,6 +48,7 @@ void Link::update(float frameTime)
 		start_y = LINK_UP_START_Y;
 		spriteData.width = LINK_UP_WIDTH;
 		spriteData.height = LINK_UP_HEIGHT;
+		flipHorizontal(0);
 		keyWasPressed = true;
 		isRunning = true;
 		
@@ -59,6 +60,7 @@ void Link::update(float frameTime)
 		start_y = LINK_DOWN_START_Y;
 		spriteData.width = LINK_DOWN_WIDTH;
 		spriteData.height = LINK_DOWN_HEIGHT;
+		flipHorizontal(0);
 		keyWasPressed = true;
 		isRunning = true;
 	}
@@ -93,7 +95,7 @@ void Link::update(float frameTime)
 		//if (isMoving == false)
 		//	setCurrentFrame(1);
 		isMoving = true;
-		setFrames(1, 7);
+		setFrames(1, 6);
 		loop = true;
 	}
 	else

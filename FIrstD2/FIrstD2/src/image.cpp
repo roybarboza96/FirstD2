@@ -78,7 +78,7 @@ bool Image::initialize(Graphics *g, int startX, int startY, int width, int heigh
 		spriteData.rect.right = spriteData.rect.left + spriteData.width;
 
 		spriteData.rect.top = start_y + (currentFrame / cols) * spriteData.height;
-		spriteData.rect.top = spriteData.rect.top + spriteData.height;
+		spriteData.rect.bottom = spriteData.rect.top + spriteData.height;
 
 
 		/*
@@ -182,7 +182,7 @@ void Image::setCurrentFrame(int c)
 inline void Image::setRect() 
 {
     // configure spriteData.rect to draw currentFrame
-    spriteData.rect.left = start_x + (currentFrame % cols) * spriteData.width;
+    spriteData.rect.left = start_x + (currentFrame % cols) * spriteData.width + 1;
     // right edge + 1
     spriteData.rect.right = spriteData.rect.left + spriteData.width;
     spriteData.rect.top = (start_y + (currentFrame / cols) * spriteData.height);

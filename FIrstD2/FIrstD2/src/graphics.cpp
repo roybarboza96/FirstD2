@@ -74,6 +74,7 @@ void Graphics::initialize(HWND hw, int w, int h, bool full)
         &d3dpp, 
         &device3d);
 
+
     if (FAILED(result))
         throw(GameError(gameErrorNS::FATAL_ERROR, "Error creating Direct3D device"));
 
