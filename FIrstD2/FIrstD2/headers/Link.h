@@ -7,7 +7,7 @@
 
 
 #define LINK_SIDE_START_X 0
-#define LINK_SIDE_START_Y 24
+#define LINK_SIDE_START_Y 25
 #define LINK_SIDE_WIDTH 19
 #define LINK_SIDE_HEIGHT 24
 
@@ -19,7 +19,7 @@
 
 
 #define LINK_UP_START_X 0
-#define LINK_UP_START_Y 48
+#define LINK_UP_START_Y 50
 #define LINK_UP_WIDTH 17
 #define LINK_UP_HEIGHT 24
 

@@ -74,20 +74,27 @@ bool Image::initialize(Graphics *g, int startX, int startY, int width, int heigh
         if (cols == 0)
             cols = 1;                               // if 0 cols use 1
 
-		spriteData.rect.left =  start_x + (currentFrame % cols) * spriteData.width;
+
+		int border_offset_x = currentFrame % cols;
+		int border_offset_y = currentFrame / cols;
+
+		// configure spriteData.rect to draw currentFrame
+		spriteData.rect.left =  start_x + (currentFrame % cols) * spriteData.width + border_offset_x ;
+		// right edge + 1
 		spriteData.rect.right = spriteData.rect.left + spriteData.width;
 
-		spriteData.rect.top = start_y + (currentFrame / cols) * spriteData.height;
+		spriteData.rect.top = start_y + (currentFrame / cols) * spriteData.height + border_offset_y;
+		// bottom edge + 1
 		spriteData.rect.bottom = spriteData.rect.top + spriteData.height;
 
 
 		/*
-        // configure spriteData.rect to draw currentFrame
+        
         spriteData.rect.left = (currentFrame % cols) * spriteData.width;
-        // right edge + 1
+        
         spriteData.rect.right = spriteData.rect.left + spriteData.width;
         spriteData.rect.top = (currentFrame / cols) * spriteData.height;
-        // bottom edge + 1
+        
         spriteData.rect.bottom = spriteData.rect.top + spriteData.height;
 		*/
     }
@@ -151,10 +158,10 @@ void Image::update(float frameTime)
             if (currentFrame < startFrame || currentFrame > endFrame)
             {
                 if(loop == true)            // if looping animation
-                    currentFrame = startFrame;
+                    currentFrame = startFrame + 1;
                 else                        // not looping animation
                 {
-                    currentFrame = endFrame;
+                    currentFrame = endFrame - 1;
                     animComplete = true;    // animation complete
                 }
             }
@@ -181,11 +188,14 @@ void Image::setCurrentFrame(int c)
 //=============================================================================
 inline void Image::setRect() 
 {
+
+	int border_offset_x = currentFrame % cols;
+	int border_offset_y = currentFrame / cols;
     // configure spriteData.rect to draw currentFrame
-    spriteData.rect.left = start_x + (currentFrame % cols) * spriteData.width + 1;
+    spriteData.rect.left = start_x + (currentFrame % cols) * spriteData.width + border_offset_x;
     // right edge + 1
     spriteData.rect.right = spriteData.rect.left + spriteData.width;
-    spriteData.rect.top = (start_y + (currentFrame / cols) * spriteData.height);
+    spriteData.rect.top = (start_y + (currentFrame / cols) * spriteData.height) + border_offset_y;
     // bottom edge + 1
     spriteData.rect.bottom = spriteData.rect.top + spriteData.height;       
 }
