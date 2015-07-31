@@ -19,6 +19,7 @@ class Entity : public Image
 
 	  int health;
 	  float speed;
+	  int direction;
 
 	  bool isMoving;
 

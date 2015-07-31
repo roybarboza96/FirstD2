@@ -13,6 +13,7 @@ Entity::Entity()
 {
 	speed = 1.0f;
 	health = 3;
+	direction = 0;
 	isMoving = false;
 	isRunning = false;
 	loopingDown = false;

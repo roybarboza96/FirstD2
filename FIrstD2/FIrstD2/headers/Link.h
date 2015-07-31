@@ -23,6 +23,12 @@
 #define LINK_UP_WIDTH 17
 #define LINK_UP_HEIGHT 24
 
+
+#define LINK_ATK_DOWN_START_X 0
+#define LINK_ATK_DOWN_START_Y 80
+#define LINK_ATK_DOWN_WIDTH 32
+#define LINK_ATK_DOWN_HEIGHT 32
+
 class Link : public Entity
 {
 
@@ -31,6 +37,8 @@ class Link : public Entity
 protected:
 
 	Input *input;
+	bool isAttacking;
+	bool moveKeyWasPressed;
 
 
 
@@ -47,6 +55,15 @@ public:
 		TextureManager *textureM);
 
 	virtual void update(float frameTime);
+
+
+	void initateMovement();
+
+
+	void setNeutral(int startX, int startY, int width, int height);
+
+
+	void setNeutralByDir();
 
 
 };
