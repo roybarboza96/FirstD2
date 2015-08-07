@@ -29,6 +29,17 @@
 #define LINK_ATK_DOWN_WIDTH 32
 #define LINK_ATK_DOWN_HEIGHT 32
 
+
+#define LINK_ATK_UP_START_X 0
+#define LINK_ATK_UP_START_Y 113
+#define LINK_ATK_UP_WIDTH 32
+#define LINK_ATK_UP_HEIGHT 38
+
+#define LINK_ATK_SIDE_START_X 0
+#define LINK_ATK_SIDE_START_Y 152
+#define LINK_ATK_SIDE_WIDTH 31
+#define LINK_ATK_SIDE_HEIGHT 31
+
 class Link : public Entity
 {
 
@@ -56,14 +67,27 @@ public:
 
 	virtual void update(float frameTime);
 
+	//initiate movement, checks to see which keys are pressed
+	//then makes necssary changes thus move animation begins
+	void initiateMovement();
+	//initiate attack, checks to see if attack kesy are pressed
+	//then makes the necessary changes thus attack animation begins
+	void initiateAttack();
 
-	void initateMovement();
+	//checks to see if attack animation ended
+	//then makes the necessary changes to go back to original neutral state
+	void checkEndOfMovement();
 
 
-	void setNeutral(int startX, int startY, int width, int height);
+	//sets the animation frame by parameters passed
+	void setImageFrame(int startX, int startY, int width, int height);
 
 
+	//sets the netural animation by direction
 	void setNeutralByDir();
+
+
+
 
 
 };
