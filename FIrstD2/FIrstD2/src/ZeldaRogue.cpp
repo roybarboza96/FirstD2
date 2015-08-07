@@ -40,7 +40,7 @@ void ZeldaRogue::initialize(HWND hwnd)
 		"Error intializing link image"));
 
 	link.setFrames(0, 7);
-	link.setFrameDelay(0.03f);
+	link.setFrameDelay(0.04f);
 	link.setCurrentFrame(0);
 
 

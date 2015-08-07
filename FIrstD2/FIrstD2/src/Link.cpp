@@ -167,15 +167,17 @@ void Link::update(float frameTime)
 		loop = false;
 		setNeutralByDir();
 		animComplete = false;
+		setX(spriteData.x + 4);
+		setY(spriteData.y - 3);
 		
 
 	}
 
+	if (!isAttacking)
+		initateMovement();
 
-	initateMovement();
 
-
-	/*
+	
 	if (input->isKeyDown(0x41) && !isAttacking)
 	{
 		start_x = LINK_ATK_DOWN_START_X;
@@ -188,7 +190,10 @@ void Link::update(float frameTime)
 
 		setCurrentFrame(0);
 		setFrames(0, 5);
-		setFrameDelay(0.2f);
+
+
+		setX(spriteData.x - 4);
+		setY(spriteData.y + 3);
 		loop = false;
 		isRunning = false;
 		isAttacking = true;
@@ -197,7 +202,7 @@ void Link::update(float frameTime)
 
 
 	}
-	*/
+	
 
 
 

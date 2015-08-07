@@ -73,9 +73,13 @@ void Entity::update(float frameTime)
 		{
 
 			animTimer -= frameDelay;
-
-			if (loopingDown)
-				currentFrame--;
+			if (isRunning)
+			{
+				if (loopingDown)
+					currentFrame--;
+				else
+					currentFrame++;
+			}
 			else
 				currentFrame++;
 
