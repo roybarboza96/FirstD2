@@ -86,6 +86,10 @@ public:
 	//sets the netural animation by direction
 	void setNeutralByDir();
 
+	//checks frame animations and directions to make correct offset
+	//thus aniation looks corect
+	void setMoveOffset();
+
 
 
 

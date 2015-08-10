@@ -197,6 +197,8 @@ void Link::initiateAttack()
 
 			setImageFrame(LINK_ATK_UP_START_X, LINK_ATK_UP_START_Y
 				, LINK_ATK_UP_WIDTH, LINK_ATK_UP_HEIGHT);
+			setY(spriteData.y - 17);
+			
 		}
 		else if (direction == 1)
 		{
@@ -263,7 +265,35 @@ void Link::checkEndOfMovement()
 			setX(spriteData.x + 4);
 			setY(spriteData.y - 3);
 		}
+		
 
+
+	}
+}
+
+
+/*
+* Makes any necessary offset to position to make animation work
+* correctly. Any initial offset will be done in initiatAttack functioin
+* but this is where the frame by frame correction will happen.
+*/
+void Link::setMoveOffset()
+{
+
+	if (direction == 0)
+	{
+
+	}
+	else if (direction == 1)
+	{
+
+	}
+	else if (direction == 2)
+	{
+
+	}
+	else if (direction == 3)
+	{
 
 	}
 }
