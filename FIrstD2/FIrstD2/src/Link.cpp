@@ -39,31 +39,26 @@ Link::~Link()
 
 void Link::initiateMovement()
 {
-
+	
 	moveKeyWasPressed = false;
 	if (input->isKeyDown(VK_UP))
 	{
 		Entity::move(0, -1);
-		start_x = LINK_UP_START_X;
-		start_y = LINK_UP_START_Y;
-		spriteData.width = LINK_UP_WIDTH;
-		spriteData.height = LINK_UP_HEIGHT;
-		flipHorizontal(0);
+		setImageFrame(LINK_UP_START_X, LINK_UP_START_Y,
+			LINK_UP_WIDTH, LINK_UP_HEIGHT);
 		moveKeyWasPressed = true;
-		isRunning = true;
+		flipHorizontal(0);
 		direction = 0;
 
 	}
 	if (input->isKeyDown(VK_DOWN))
 	{
 		Entity::move(0, 1);
-		start_x = LINK_DOWN_START_X;
-		start_y = LINK_DOWN_START_Y;
-		spriteData.width = LINK_DOWN_WIDTH;
-		spriteData.height = LINK_DOWN_HEIGHT;
-		flipHorizontal(0);
+
+		setImageFrame(LINK_DOWN_START_X, LINK_DOWN_START_Y,
+			LINK_DOWN_WIDTH, LINK_DOWN_HEIGHT);
 		moveKeyWasPressed = true;
-		isRunning = true;
+		flipHorizontal(0);
 		direction = 2;
 	}
 
@@ -71,25 +66,20 @@ void Link::initiateMovement()
 	if (input->isKeyDown(VK_LEFT))
 	{
 		Entity::move(-1, 0);
-		start_x = LINK_SIDE_START_X;
-		start_y = LINK_SIDE_START_Y;
-		spriteData.width = LINK_SIDE_WIDTH;
-		spriteData.height = LINK_SIDE_HEIGHT;
+		setImageFrame(LINK_SIDE_START_X, LINK_SIDE_START_Y,
+			LINK_SIDE_WIDTH, LINK_SIDE_HEIGHT);
 		flipHorizontal(1);
 		moveKeyWasPressed = true;
-		isRunning = true;
 		direction = 3;
 	}
 	if (input->isKeyDown(VK_RIGHT))
 	{
 		Entity::move(1, 0);
-		start_x = LINK_SIDE_START_X;
-		start_y = LINK_SIDE_START_Y;
-		spriteData.width = LINK_SIDE_WIDTH;
-		spriteData.height = LINK_SIDE_HEIGHT;
+		setImageFrame(LINK_SIDE_START_X, LINK_SIDE_START_Y,
+			LINK_SIDE_WIDTH, LINK_SIDE_HEIGHT);
 		flipHorizontal(0);
 		moveKeyWasPressed = true;
-		isRunning = true;
+
 		direction = 1;
 	}
 
@@ -98,6 +88,7 @@ void Link::initiateMovement()
 	{
 		if (isMoving == false)
 			setCurrentFrame(1);
+		isRunning;
 		isMoving = true;
 		setFrames(1, 6);
 		loop = true;
@@ -146,7 +137,7 @@ void Link::setNeutralByDir()
 		flipHorizontal(1);
 		setImageFrame(LINK_SIDE_START_X, LINK_SIDE_START_Y, LINK_SIDE_WIDTH, LINK_SIDE_HEIGHT);
 	}
-	setRect();
+	//setRect();
 
 }
 
@@ -168,9 +159,6 @@ void Link::update(float frameTime)
 
 		
 	initiateAttack();
-
-
-
 
 
 	Entity::update(frameTime);
@@ -197,7 +185,8 @@ void Link::initiateAttack()
 
 			setImageFrame(LINK_ATK_UP_START_X, LINK_ATK_UP_START_Y
 				, LINK_ATK_UP_WIDTH, LINK_ATK_UP_HEIGHT);
-			setY(spriteData.y - 17);
+
+			setY(spriteData.y - 27);
 			
 		}
 		else if (direction == 1)
@@ -206,13 +195,16 @@ void Link::initiateAttack()
 			setImageFrame(LINK_ATK_SIDE_START_X, LINK_ATK_SIDE_START_Y
 				, LINK_ATK_SIDE_WIDTH, LINK_ATK_SIDE_HEIGHT);
 
+			setY(spriteData.y - 16);
+
 		}
 		else if (direction == 2)
 		{
 
 			setImageFrame(LINK_ATK_DOWN_START_X, LINK_ATK_DOWN_START_Y
 				, LINK_ATK_SIDE_WIDTH, LINK_ATK_SIDE_HEIGHT);
-			setX(spriteData.x - 4);
+
+			setX(spriteData.x - 15);
 			setY(spriteData.y + 3);
 
 
@@ -223,6 +215,9 @@ void Link::initiateAttack()
 			setImageFrame(LINK_ATK_SIDE_START_X, LINK_ATK_SIDE_START_Y
 				, LINK_ATK_SIDE_WIDTH, LINK_ATK_SIDE_HEIGHT);
 			flipHorizontal(1);
+
+			setX(spriteData.x - 24);
+			setY(spriteData.y - 16);
 		}
 		
 
@@ -259,12 +254,25 @@ void Link::checkEndOfMovement()
 		setNeutralByDir();
 		animComplete = false;
 
-
-		if (direction == 2)
+		if (direction == 0)
 		{
-			setX(spriteData.x + 4);
+			setY(spriteData.y + 27);
+		}
+		else if (direction == 1)
+		{
+			setY(spriteData.y + 16);
+		}
+		else if (direction == 2)
+		{
+			setX(spriteData.x + 15);
 			setY(spriteData.y - 3);
 		}
+		else if (direction == 3)
+		{
+			setX(spriteData.x + 24);
+			setY(spriteData.y + 16);
+		}
+		
 		
 
 
@@ -274,26 +282,129 @@ void Link::checkEndOfMovement()
 
 /*
 * Makes any necessary offset to position to make animation work
-* correctly. Any initial offset will be done in initiatAttack functioin
+* correctly. Any initial offset will be done in initiatAttack function (because of currentFrame == 0)
 * but this is where the frame by frame correction will happen.
 */
-void Link::setMoveOffset()
+void Entity::setMoveOffset()
 {
 
-	if (direction == 0)
+
+	if (isAttacking)
 	{
 
-	}
-	else if (direction == 1)
-	{
 
-	}
-	else if (direction == 2)
-	{
 
-	}
-	else if (direction == 3)
-	{
+		if (direction == 0)
+		{
+			if (currentFrame == 4)
+			{
+				//actual offset
+				setX(spriteData.x - 18);
+			}
+			else if (currentFrame == 5)
+			{
+				//actual offset
+				setX(spriteData.x - 6);
+			}
+			else if (currentFrame == 6)
+			{
+				//revert back to original
+				setX(spriteData.x + 24);
+			}
+
+		}
+
+
+		else if (direction == 1)
+		{
+			if (currentFrame == 1)
+			{
+				//actual offset
+				setX(spriteData.x + 3);
+			}
+			else if (currentFrame == 2)
+			{
+				//actual offset
+				setX(spriteData.x + 3);
+			}
+			else if (currentFrame == 4)
+			{
+				//actual offset
+				setY(spriteData.y + 12);
+
+				//revert back to original
+				setX(spriteData.x - 6);
+			}
+			else if (currentFrame == 5)
+			{
+				setY(spriteData.y + 4);
+			}
+			else if (currentFrame == 6)
+			{
+				setY(spriteData.y - 16);
+			}
+		}
+
+
+		else if (direction == 2)
+		{
+			if (currentFrame == 3)
+			{
+				//actual offset
+				setY(spriteData.y + 5);
+			}
+			else if (currentFrame == 4)
+			{
+				//revert back to original
+				setY(spriteData.y - 5);
+			}
+			else if (currentFrame == 5)
+			{
+				//actual offset
+				setX(spriteData.x + 2);
+			}
+			else if (currentFrame == 6)
+			{
+				//revert back to original
+				setX(spriteData.x - 2);
+			}
+		}
+
+
+
+		else if (direction == 3)
+		{
+			if (currentFrame == 1)
+			{
+				//actual offset
+				setX(spriteData.x - 3);
+			}
+			else if (currentFrame == 2)
+			{
+				//actual offset
+				setX(spriteData.x - 3);
+			}
+			else if (currentFrame == 4)
+			{
+				//actual offset
+				setY(spriteData.y + 12);
+
+				//revert to original
+				setX(spriteData.x + 6);
+			}
+			else if (currentFrame == 5)
+			{
+				setY(spriteData.y + 4);
+			}
+			else if (currentFrame == 6)
+			{
+				//revert to original
+				setY(spriteData.y - 16);
+			}
+		}
+
+
+
 
 	}
 }

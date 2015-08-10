@@ -44,7 +44,7 @@ void ZeldaRogue::initialize(HWND hwnd)
 	link.setCurrentFrame(0);
 
 
-	link.setScale(1.0);
+	link.setScale(2.0);
 
 
 

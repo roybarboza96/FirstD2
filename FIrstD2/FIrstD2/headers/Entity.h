@@ -22,9 +22,11 @@ class Entity : public Image
 	  int direction;
 
 	  bool isMoving;
+	  bool isAttacking;
 
 	  bool isRunning;
 	  bool loopingDown;
+
 
 
 
@@ -67,6 +69,12 @@ class Entity : public Image
 
 	  //
 	  void virtual update(float frameTime);
+
+
+	  //checks frame animations and directions to make correct offset
+	  //thus adjustments to animation frames can be made to make them look
+	  //smoother
+	  void virtual setMoveOffset();
 
 
 

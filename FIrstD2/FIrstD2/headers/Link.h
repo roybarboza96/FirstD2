@@ -48,7 +48,6 @@ class Link : public Entity
 protected:
 
 	Input *input;
-	bool isAttacking;
 	bool moveKeyWasPressed;
 
 
@@ -86,9 +85,8 @@ public:
 	//sets the netural animation by direction
 	void setNeutralByDir();
 
-	//checks frame animations and directions to make correct offset
-	//thus aniation looks corect
-	void setMoveOffset();
+
+
 
 
 

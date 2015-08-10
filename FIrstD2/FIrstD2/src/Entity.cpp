@@ -71,7 +71,6 @@ void Entity::update(float frameTime)
 
 		if (animTimer > frameDelay)
 		{
-
 			animTimer -= frameDelay;
 			if (isRunning)
 			{
@@ -82,6 +81,9 @@ void Entity::update(float frameTime)
 			}
 			else
 				currentFrame++;
+
+			setMoveOffset();
+
 
 			if (currentFrame < startFrame || currentFrame > endFrame)
 			{
