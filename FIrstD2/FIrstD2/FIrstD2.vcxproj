@@ -84,9 +84,11 @@
     <ClInclude Include="headers\Link.h" />
     <ClInclude Include="headers\ZeldaRogue.h" />
     <ClInclude Include="headers\textureManager.h" />
+    <ClInclude Include="Octorok.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Octorok.cpp" />
     <ClCompile Include="src\Entity.cpp" />
     <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\graphics.cpp" />

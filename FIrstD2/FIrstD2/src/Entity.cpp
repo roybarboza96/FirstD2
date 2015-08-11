@@ -62,6 +62,20 @@ void Entity::move(int x, int y)
 
 }
 
+
+
+void Entity::moveByDir()
+{
+	if (direction == 0)
+		Entity::move(0, -1);
+	else if (direction == 1)
+		Entity::move(1, 0);
+	else if (direction == 2)
+		Entity::move(0, 1);
+	else if (direction == 3)
+		Entity::move(-1, 0);
+}
+
 void Entity::update(float frameTime)
 {
 
@@ -129,3 +143,10 @@ void Entity::update(float frameTime)
 }
 
 
+void Entity::setImageFrame(int startX, int startY, int width, int height)
+{
+	start_x = startX;
+	start_y = startY;
+	spriteData.width = width;
+	spriteData.height = height;
+}

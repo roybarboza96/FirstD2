@@ -105,13 +105,7 @@ void Link::initiateMovement()
 }
 
 
-void Link::setImageFrame(int startX, int startY, int width, int height)
-{
-		start_x = startX;
-		start_y = startY;
-		spriteData.width = width;
-		spriteData.height = height;
-}
+
 
 
 void Link::setNeutralByDir()
