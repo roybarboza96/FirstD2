@@ -17,6 +17,7 @@ Entity::Entity()
 	isMoving = false;
 	isRunning = false;
 	loopingDown = false;
+	frameChanged = false;
 
 
 }
@@ -85,6 +86,7 @@ void Entity::update(float frameTime)
 
 		if (animTimer > frameDelay)
 		{
+			frameChanged = true;
 			animTimer -= frameDelay;
 			if (isRunning)
 			{
@@ -96,7 +98,7 @@ void Entity::update(float frameTime)
 			else
 				currentFrame++;
 
-			setMoveOffset();
+			this->setMoveOffset();
 
 
 			if (currentFrame < startFrame || currentFrame > endFrame)
@@ -137,6 +139,10 @@ void Entity::update(float frameTime)
 			}
 
 			setRect();                      // set spriteData.rect
+		}
+		else
+		{
+			frameChanged = false;
 		}
 	}
 

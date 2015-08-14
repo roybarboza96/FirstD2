@@ -8,11 +8,13 @@
 #define WIN32_LEAN_AND_MEAN
 
 
-#define MAIN_TEXTURE "./res/LinkSpriteSheet.png"
+#define LINK_TEXTURE "./res/LinkSpriteSheet.png"
+#define SMALL_ENEMIES_TEXTURE "./res/small_enemies.png"
 
 #include "game.h"
 #include "Entity.h"
 #include "Link.h"
+#include "Octorok.h"
 
 //=============================================================================
 // Create game class
@@ -22,10 +24,14 @@ class ZeldaRogue : public Game
 private:
     // variables
 
-	TextureManager mainTexture;       //Main texture
+	TextureManager linkTexture;       //LINK texture
+
+	TextureManager small_enemiesTexture; //small enemies texture
 
 
 	Link link;
+
+	Octorok octorok;
 
 public:
     // Constructor

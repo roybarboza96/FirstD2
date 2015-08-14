@@ -78,9 +78,10 @@ public:
 	void checkEndOfMovement();
 
 
-	//sets the animation frame by parameters passed
-	void setImageFrame(int startX, int startY, int width, int height);
-
+	//checks frame animations and directions to make correct offset
+	//thus adjustments to animation frames can be made to make them look
+	//smoother
+	void setMoveOffset();
 
 	//sets the netural animation by direction
 	void setNeutralByDir();

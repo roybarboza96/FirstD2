@@ -30,22 +30,34 @@ void ZeldaRogue::initialize(HWND hwnd)
     Game::initialize(hwnd); // throws GameError
 
 
-	if (!mainTexture.initialize(graphics, MAIN_TEXTURE, 8))
+	if (!linkTexture.initialize(graphics, LINK_TEXTURE, 8))
 		throw (GameError(gameErrorNS::FATAL_ERROR,
-		"Error initializing main texture"));
+		"Error initializing LINK texture"));
+
+	if (!small_enemiesTexture.initialize(graphics, SMALL_ENEMIES_TEXTURE, 8))
+		throw (GameError(gameErrorNS::FATAL_ERROR,
+		"Error initializing SMALL ENEMIES texture"));
 
 
-	if (!link.initialize((Game*)this, 0, 0, 16, 24, 8, &mainTexture))
+
+
+	if (!link.initialize((Game*)this, 0, 0, 16, 24, 8, &linkTexture))
 		throw (GameError(gameErrorNS::FATAL_ERROR,
 		"Error intializing link image"));
+
+	if (!octorok.initialize((Game*)this, 0, 0, 16, 16, 4, &small_enemiesTexture))
+		throw (GameError(gameErrorNS::FATAL_ERROR,
+		"Error intializing octorok image"));
 
 	link.setFrames(0, 7);
 	link.setFrameDelay(0.04f);
 	link.setCurrentFrame(0);
 
-
 	link.setScale(2.0);
 
+
+	octorok.setX(50.0f);
+	octorok.setY(50.0f);
 
 
 
@@ -59,6 +71,7 @@ void ZeldaRogue::update()
 {
 
 	link.update(frameTime);
+	octorok.update(frameTime);
 
 
 }
@@ -82,6 +95,7 @@ void ZeldaRogue::render()
 {
 	graphics->spriteBegin();
 	link.draw();
+	octorok.draw();
 	graphics->spriteEnd();
 }
 
@@ -92,7 +106,8 @@ void ZeldaRogue::render()
 void ZeldaRogue::releaseAll()
 {
     Game::releaseAll();
-	mainTexture.onLostDevice();
+	linkTexture.onLostDevice();
+	small_enemiesTexture.onLostDevice();
     return;
 }
 
@@ -103,6 +118,7 @@ void ZeldaRogue::releaseAll()
 void ZeldaRogue::resetAll()
 {
     Game::resetAll();
-	mainTexture.onResetDevice();
+	linkTexture.onResetDevice();
+	small_enemiesTexture.onResetDevice();
     return;
 }

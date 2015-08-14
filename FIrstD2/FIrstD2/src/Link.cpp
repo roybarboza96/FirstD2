@@ -155,9 +155,8 @@ void Link::update(float frameTime)
 	initiateAttack();
 
 
+
 	Entity::update(frameTime);
-
-
 
 
 }
@@ -279,7 +278,7 @@ void Link::checkEndOfMovement()
 * correctly. Any initial offset will be done in initiatAttack function (because of currentFrame == 0)
 * but this is where the frame by frame correction will happen.
 */
-void Entity::setMoveOffset()
+void Link::setMoveOffset()
 {
 
 

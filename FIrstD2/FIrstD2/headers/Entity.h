@@ -23,6 +23,7 @@ class Entity : public Image
 
 	  bool isRunning;
 	  bool loopingDown;
+	  bool frameChanged;
 
 
 
@@ -56,26 +57,27 @@ class Entity : public Image
 	  void moveByDir();
 
 	  //Setters
-	  void set_speed(int new_speed){ speed = new_speed; }
+	  void set_speed(float new_speed){ speed = new_speed; }
 	  void set_health(int new_health){ health = new_health; }
 	  void set_isMoving(bool isNowMoving){ isMoving = isNowMoving; }
 	
 
 
 	  //Getters
-	  int get_speed(){ return speed; }
+	  float get_speed(){ return speed; }
 	  int get_health(){ return health; }
 	  bool get_isMoving(){ return isMoving; }
 
 
 	  //
-	  void virtual update(float frameTime);
+	  void update(float frameTime);
 
 
 	  //checks frame animations and directions to make correct offset
 	  //thus adjustments to animation frames can be made to make them look
 	  //smoother
-	  void virtual setMoveOffset();
+	  void virtual setMoveOffset(){};
+
 
 
 
