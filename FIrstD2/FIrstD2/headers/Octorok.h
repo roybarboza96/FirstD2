@@ -50,6 +50,10 @@ protected:
 	int numSteps;
 	int endSteps;
 	bool isIdle;
+	int idleCounter;
+	int idleEnd;
+
+	Input *input;
 
 
 public:
