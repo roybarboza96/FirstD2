@@ -87,7 +87,11 @@ public:
 	void setNeutralByDir();
 
 
+	bool collision();
 
+	bool collisionWithPlayer(){
+		return false;
+	}
 
 
 

@@ -90,7 +90,9 @@ public:
 	//attack function
 	void attack();
 
+	bool collision();
 
+	bool collisionWithPlayer();
 
 };
 

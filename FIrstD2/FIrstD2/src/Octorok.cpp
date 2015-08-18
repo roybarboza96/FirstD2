@@ -61,9 +61,6 @@ void Octorok::update(float frameTime)
 		}
 		else
 			idleCounter++;
-
-
-		
 		
 
 	}
@@ -218,4 +215,12 @@ void Octorok::attack()
 void Octorok::setMoveOffset()
 {
 
+}
+
+
+bool Octorok::collision()
+{
+
+	
+	return false;
 }

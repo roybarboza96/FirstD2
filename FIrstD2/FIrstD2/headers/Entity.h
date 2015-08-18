@@ -7,6 +7,15 @@
 #include "image.h"
 
 
+typedef struct Box
+{
+	float x;
+	float y;
+	int width;
+	int height;
+};
+
+
 class Entity : public Image
 {
 
@@ -24,6 +33,29 @@ class Entity : public Image
 	  bool isRunning;
 	  bool loopingDown;
 	  bool frameChanged;
+	  bool isRecoiling;
+
+
+
+	  //boolean to tell if the entity got hit
+	  bool gotHit;
+
+	  //the point at which point entity was hit
+	  //also it is repsective to the hit box x and y values
+	  //also these are only accurate if and only if gotHit is set to true
+	  //Note: that if these values are greater than x + width and y + height then these
+	  //      are in valid
+	  VECTOR2 hitVector;
+
+	  //the vector to move in the direction of getting hit
+	  VECTOR2 hitMove;
+
+
+
+	  //the hit box to the body
+	  Box hitBox;
+
+
 
 
 
@@ -83,6 +115,32 @@ class Entity : public Image
 
 	  //sets the animation frame by parameters passed
 	  void setImageFrame(int startX, int startY, int width, int height);
+
+
+	  //collision with any entity besides the player character
+	  bool virtual collision(){
+		  return false;
+	  }
+
+
+	  //function that checks with collision of player character only
+	  bool virtual collisionWithPlayer(Entity player){
+		  return false;
+	  }
+
+
+	  //the move when hit, figures out where the movement of the recoils is
+	  void startHitRecoil();
+	  //the actual movement of recoiling
+	  void recoiling();
+
+
+	  //changing the hitbox
+	  void changeHitBox(int x, int y, int width, int height);
+
+
+	  void setX(float newX);
+	  void setY(float newY);
 
 
 

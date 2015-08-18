@@ -402,4 +402,7 @@ void Link::setMoveOffset()
 	}
 }
 
-
+bool Link::collision()
+{
+	return false;
+}
