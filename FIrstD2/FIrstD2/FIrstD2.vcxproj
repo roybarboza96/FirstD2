@@ -75,6 +75,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="headers\constants.h" />
+    <ClInclude Include="headers\Enemy.h" />
     <ClInclude Include="headers\Entity.h" />
     <ClInclude Include="headers\game.h" />
     <ClInclude Include="headers\gameError.h" />
@@ -88,6 +89,7 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Enemy.cpp" />
     <ClCompile Include="src\Entity.cpp" />
     <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\graphics.cpp" />

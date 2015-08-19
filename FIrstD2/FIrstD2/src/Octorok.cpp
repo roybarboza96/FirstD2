@@ -48,6 +48,10 @@ bool Octorok::initialize(Game *gamePtr, int startX, int startY, int width, int h
 
 void Octorok::update(float frameTime)
 {
+
+	if (isRecoiling)
+		recoiling();
+
 	if (!isAttacking)
 	{
 		if (numSteps >= endSteps || idleCounter == idleEnd)

@@ -2,7 +2,7 @@
 #define _OCTOROK_H                // file is included in more than one place
 #define WIN32_LEAN_AND_MEAN
 
-#include "Entity.h"
+#include "Enemy.h"
 
 
 
@@ -40,7 +40,7 @@
 
 
 
-class Octorok : public Entity
+class Octorok : public Enemy
 {
 
 

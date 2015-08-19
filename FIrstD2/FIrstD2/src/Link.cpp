@@ -138,20 +138,18 @@ void Link::setNeutralByDir()
 
 void Link::update(float frameTime)
 {
-	
-
-
 
 	bool keyWasPressed = false;
-
 	checkEndOfMovement();
 
 
-	if (!isAttacking)
+	if (!isAttacking && !isRecoiling)
 		initiateMovement();
+	else if (isRecoiling)
+		recoiling();
 
 
-		
+	//attack overrides the move
 	initiateAttack();
 
 

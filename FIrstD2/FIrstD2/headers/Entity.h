@@ -33,6 +33,9 @@ class Entity : public Image
 	  bool isRunning;
 	  bool loopingDown;
 	  bool frameChanged;
+
+	  //counter and flag for recoiling
+	  int recoilCounter;
 	  bool isRecoiling;
 
 

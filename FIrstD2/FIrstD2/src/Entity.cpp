@@ -22,6 +22,11 @@ Entity::Entity()
 
 }
 
+Entity::~Entity()
+{
+
+}
+
 bool Entity::initialize(Game *gamePtr,int startX, int startY, int width, int height, int ncols,
 	TextureManager *textureM)
 {
@@ -34,10 +39,7 @@ bool Entity::initialize(Game *gamePtr,int startX, int startY, int width, int hei
 
 }
 
-Entity::~Entity()
-{
 
-}
 
 bool Entity::check_collision(Entity *other, VECTOR2 *hit)
 {
@@ -216,6 +218,27 @@ void Entity::startHitRecoil()
 }
 
 
+
+
+void Entity::recoiling()
+{
+	spriteData.x = spriteData.x + hitMove.x * 0.2f;
+	spriteData.y = spriteData.y + hitMove.y * 0.2f;
+	recoilCounter++;
+
+	if (recoilCounter == 5)
+	{
+		recoilCounter = 0;
+		isRecoiling = false;
+	}
+}
+
+
+
+
+
+
+
 void Entity::setX(float newX)
 {
 	hitBox.x = newX;
@@ -229,7 +252,3 @@ void Entity::setY(float newY)
 }
 
 
-void Entity::recoiling()
-{
-
-}
